@@ -12,7 +12,7 @@ import CoreLocation
 class ViewController: UIViewController,CLLocationManagerDelegate {
 
     var locationManager = CLLocationManager()
-    var requiredCoordinate: CLLocationCoordinate2D!
+    var pinnedCoordinate: CLLocationCoordinate2D!
     var pinLocation: CLLocationCoordinate2D!
     var pin : Int = 0
     var distance = [Double]()
@@ -23,7 +23,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         
        
-        mapView.delegate = self as? MKMapViewDelegate
+        mapView.delegate = self
               locationManager.delegate = self
               locationManager.desiredAccuracy = kCLLocationAccuracyBest
               locationManager.requestWhenInUseAuthorization()
@@ -84,6 +84,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
         
         func adddoubleTap() {
+          
+            
+            
       let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin(sender:)))
       doubleTap.numberOfTapsRequired = 2
       doubleTap.delegate = self
@@ -93,6 +96,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
         
     @objc func dropPin(sender: UITapGestureRecognizer) {
+                  deletePin()
       pin = pin + 1
       mapView.removeOverlays(mapView.overlays)
       let touchPoint = sender.location(in: mapView)
@@ -101,16 +105,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
       let annotation = Pin(coordinate: coordinate, identifier: "pin")
       mapView.addAnnotation(annotation)
       pinLocation = coordinate
-     
-    if (pin==2)
-    { pin = 0
-      deletePin()
-    }
-    else
-    {
-       
-    }
-      requiredCoordinate = coordinate
+      pinnedCoordinate = coordinate
       
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
