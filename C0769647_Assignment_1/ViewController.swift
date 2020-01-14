@@ -18,6 +18,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     var distance = [Double]()
 
     
+    @IBOutlet weak var zoomStepper: UIStepper!
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
               locationManager.requestWhenInUseAuthorization()
               locationManager.startUpdatingLocation()
         mapView.showsUserLocation=true
+        zoomStepper.value = 0
+        zoomStepper.minimumValue = -5
+        zoomStepper.maximumValue = 5
     adddoubleTap()
              
     }
@@ -78,7 +82,37 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
       renderer.strokeColor = UIColor.blue
       return renderer
     }
-}
+    
+    func zoomMap(byFactor delta: Double) {
+     var region: MKCoordinateRegion = self.mapView.region
+     var span: MKCoordinateSpan = mapView.region.span
+     span.latitudeDelta *= delta
+     span.longitudeDelta *= delta
+     region.span = span
+     mapView.setRegion(region, animated: true)
+    }
+    
+    @IBAction func zoomPressed(_ sender: UIStepper)
+    {
+        if sender.value < 0
+         {
+          var region: MKCoordinateRegion = mapView.region
+          region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
+          region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
+          mapView.setRegion(region, animated: true)
+          zoomStepper.value = 0
+         }
+         else
+         {
+          var region: MKCoordinateRegion = mapView.region
+          region.span.latitudeDelta /= 2.0
+          region.span.longitudeDelta /= 2.0
+          mapView.setRegion(region, animated: true)
+          zoomStepper.value = 0
+         }
+        }
+    }
+
     
     extension ViewController : UIGestureRecognizerDelegate, MKMapViewDelegate {
     

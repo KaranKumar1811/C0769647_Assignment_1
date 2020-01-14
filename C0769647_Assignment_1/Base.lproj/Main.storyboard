@@ -39,6 +39,13 @@
                                     <action selector="btnPath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aEE-4N-Tvj"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-4B-0Z0">
+                                <rect key="frame" x="20" y="794" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="zoomPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qu3-6W-DIc"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -55,6 +62,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="c03-RO-IPZ" id="kxA-7a-86z"/>
+                        <outlet property="zoomStepper" destination="iW5-4B-0Z0" id="9ZM-uF-1F9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
