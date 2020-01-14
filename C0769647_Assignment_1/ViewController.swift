@@ -13,7 +13,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
 
     var locationManager = CLLocationManager()
     var requiredCoordinate: CLLocationCoordinate2D!
-    var pinLocation: [CLLocationCoordinate2D] = []
+    var pinLocation: CLLocationCoordinate2D!
     var pin : Int = 0
     var distance = [Double]()
 
@@ -48,7 +48,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
        }
     
     @IBAction func btnPath(_ sender: UIButton) {
-        direction(sourcePlaceMark: MKPlacemark(coordinate: locationManager.location!.coordinate), destinationPlacMark: MKPlacemark(coordinate: pinLocation[0]))
+        direction(sourcePlaceMark: MKPlacemark(coordinate: locationManager.location!.coordinate), destinationPlacMark: MKPlacemark(coordinate: pinLocation))
               
              
         
@@ -100,8 +100,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
       let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
       let annotation = Pin(coordinate: coordinate, identifier: "pin")
       mapView.addAnnotation(annotation)
-      pinLocation.removeAll(keepingCapacity: false)
-        pinLocation.append(coordinate)
+      pinLocation = coordinate
      
     if (pin==2)
     { pin = 0
