@@ -100,10 +100,11 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
       let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
       let annotation = Pin(coordinate: coordinate, identifier: "pin")
       mapView.addAnnotation(annotation)
-      pinLocation.append(coordinate)
+      pinLocation.removeAll(keepingCapacity: false)
+        pinLocation.append(coordinate)
      
     if (pin==2)
-    {
+    { pin = 0
       deletePin()
     }
     else
