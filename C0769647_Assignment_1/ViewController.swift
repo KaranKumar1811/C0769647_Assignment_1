@@ -18,8 +18,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     var distance = [Double]()
 
     
+    @IBOutlet weak var transportSegment: UISegmentedControl!
     @IBOutlet weak var zoomStepper: UIStepper!
     @IBOutlet weak var mapView: MKMapView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,12 +35,18 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         zoomStepper.value = 0
         zoomStepper.minimumValue = -5
         zoomStepper.maximumValue = 5
+        
     adddoubleTap()
              
     }
     
     
-     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  
+    @IBAction func transportTypeAction(_ sender: UISegmentedControl) {
+    
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
            let userLocation : CLLocation = locations[0]
            let latitude = userLocation.coordinate.latitude
            let longitude = userLocation.coordinate.longitude
@@ -53,6 +61,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func btnPath(_ sender: UIButton) {
         direction(sourcePlaceMark: MKPlacemark(coordinate: locationManager.location!.coordinate), destinationPlacMark: MKPlacemark(coordinate: pinLocation))
+       
               
              
         
@@ -60,12 +69,19 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func direction(sourcePlaceMark: MKPlacemark , destinationPlacMark: MKPlacemark){
-             
-           let request = MKDirections.Request()
+              let request = MKDirections.Request()
+           
                    request.source = MKMapItem(placemark: sourcePlaceMark)
                    request.destination = MKMapItem(placemark: destinationPlacMark)
-                   request.transportType = .automobile
-              
+                 //  request.transportType = .walking
+              if transportSegment.selectedSegmentIndex == 0
+                     {
+                         request.transportType = .automobile
+                     }
+                     else if transportSegment.selectedSegmentIndex == 1{
+                
+                         request.transportType = .walking
+                     }
              let directions = MKDirections(request: request)
              directions.calculate { [unowned self] response, error in
                guard let unwrappedResponse = response else { return }
@@ -79,7 +95,18 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
       let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-      renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 2
+     
+        if transportSegment.selectedSegmentIndex == 0
+                           {
+                            
+                               renderer.strokeColor = UIColor.blue
+                                
+                           }
+                           else if transportSegment.selectedSegmentIndex == 1{
+                     
+                                renderer.strokeColor = UIColor.green
+                           }
       return renderer
     }
     

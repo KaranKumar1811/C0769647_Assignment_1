@@ -18,50 +18,77 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uri-zv-G1C">
                                 <rect key="frame" x="0.0" y="36" width="414" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find My Way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKN-Dg-4j4">
-                                        <rect key="frame" x="158" y="20" width="98" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find My Way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKN-Dg-4j4">
+                                        <rect key="frame" x="149" y="20" width="98" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6K5-vx-o0h">
+                                        <rect key="frame" x="8" y="15" width="109" height="32"/>
+                                        <segments>
+                                            <segment title="" image="car.fill" catalog="system"/>
+                                            <segment title="" image="icons8-walking-100 (1)"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="transportTypeAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="8ai-9k-Eee"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-4B-0Z0">
+                                        <rect key="frame" x="301" y="15" width="94" height="31"/>
+                                        <connections>
+                                            <action selector="zoomPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qu3-6W-DIc"/>
+                                        </connections>
+                                    </stepper>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="HKN-Dg-4j4" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="top" constant="20" id="AiJ-Xd-P3h"/>
+                                    <constraint firstAttribute="bottom" secondItem="iW5-4B-0Z0" secondAttribute="bottom" constant="15" id="BWq-O9-Cik"/>
+                                    <constraint firstItem="iW5-4B-0Z0" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="top" constant="15" id="NXn-fC-soX"/>
+                                    <constraint firstItem="iW5-4B-0Z0" firstAttribute="leading" secondItem="HKN-Dg-4j4" secondAttribute="trailing" constant="54" id="POB-83-eiS"/>
+                                    <constraint firstAttribute="bottom" secondItem="6K5-vx-o0h" secondAttribute="bottom" constant="15" id="VzW-q3-ibd"/>
+                                    <constraint firstItem="HKN-Dg-4j4" firstAttribute="leading" secondItem="6K5-vx-o0h" secondAttribute="trailing" constant="32" id="cfs-Yc-tOW"/>
+                                    <constraint firstItem="6K5-vx-o0h" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="top" constant="15" id="cuZ-Tv-rjr"/>
+                                    <constraint firstItem="6K5-vx-o0h" firstAttribute="leading" secondItem="uri-zv-G1C" secondAttribute="leading" constant="8" id="lbI-92-sG0"/>
+                                    <constraint firstAttribute="trailing" secondItem="iW5-4B-0Z0" secondAttribute="trailing" constant="19" id="mwt-Eb-8DZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="HKN-Dg-4j4" secondAttribute="bottom" constant="20" id="xg4-ml-Lyp"/>
+                                </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c03-RO-IPZ">
-                                <rect key="frame" x="0.0" y="105" width="414" height="757"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="765"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-Ii-H5x">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-Ii-H5x">
                                 <rect key="frame" x="327" y="777" width="67" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="locationButton"/>
                                 <connections>
                                     <action selector="btnPath:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aEE-4N-Tvj"/>
                                 </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="iW5-4B-0Z0">
-                                <rect key="frame" x="20" y="794" width="94" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="zoomPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qu3-6W-DIc"/>
-                                </connections>
-                            </stepper>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="7Lp-Ii-H5x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="327" id="1oJ-Hy-Jwh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c03-RO-IPZ" secondAttribute="bottom" id="7pS-nr-Z2s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uri-zv-G1C" secondAttribute="bottom" constant="765" id="F41-CI-kwk"/>
                             <constraint firstItem="c03-RO-IPZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FPn-An-Yq2"/>
                             <constraint firstItem="c03-RO-IPZ" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" constant="8" symbolic="YES" id="Hed-ds-tIL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="top" constant="8" id="RF2-ak-xoK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uri-zv-G1C" secondAttribute="trailing" id="Rnm-zD-073"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Lp-Ii-H5x" secondAttribute="bottom" constant="18" id="TXx-gm-aLc"/>
+                            <constraint firstItem="7Lp-Ii-H5x" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" constant="680" id="W1g-Pv-zbX"/>
+                            <constraint firstItem="c03-RO-IPZ" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" id="hvj-uq-9cV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Lp-Ii-H5x" secondAttribute="trailing" constant="20" id="oeV-cH-vBf"/>
+                            <constraint firstItem="uri-zv-G1C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ox3-0e-fNm"/>
                             <constraint firstItem="uri-zv-G1C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pj4-Hh-GBp"/>
+                            <constraint firstItem="uri-zv-G1C" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rLF-4Y-9B3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c03-RO-IPZ" secondAttribute="trailing" id="ymS-a7-KVZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="c03-RO-IPZ" id="kxA-7a-86z"/>
+                        <outlet property="transportSegment" destination="6K5-vx-o0h" id="o80-oj-Qkc"/>
                         <outlet property="zoomStepper" destination="iW5-4B-0Z0" id="9ZM-uF-1F9"/>
                     </connections>
                 </viewController>
@@ -71,6 +98,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="car.fill" catalog="system" width="64" height="46"/>
+        <image name="icons8-walking-100 (1)" width="36" height="36"/>
         <image name="locationButton" width="67" height="67"/>
     </resources>
 </document>
