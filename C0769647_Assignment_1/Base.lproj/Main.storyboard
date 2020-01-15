@@ -72,16 +72,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c03-RO-IPZ" secondAttribute="bottom" id="7pS-nr-Z2s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uri-zv-G1C" secondAttribute="bottom" constant="765" id="F41-CI-kwk"/>
                             <constraint firstItem="c03-RO-IPZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FPn-An-Yq2"/>
-                            <constraint firstItem="c03-RO-IPZ" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" constant="8" symbolic="YES" id="Hed-ds-tIL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="top" constant="8" id="RF2-ak-xoK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uri-zv-G1C" secondAttribute="trailing" id="Rnm-zD-073"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Lp-Ii-H5x" secondAttribute="bottom" constant="18" id="TXx-gm-aLc"/>
                             <constraint firstItem="7Lp-Ii-H5x" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" constant="680" id="W1g-Pv-zbX"/>
-                            <constraint firstItem="c03-RO-IPZ" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" id="hvj-uq-9cV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Lp-Ii-H5x" secondAttribute="trailing" constant="20" id="oeV-cH-vBf"/>
                             <constraint firstItem="uri-zv-G1C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ox3-0e-fNm"/>
                             <constraint firstItem="uri-zv-G1C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pj4-Hh-GBp"/>
                             <constraint firstItem="uri-zv-G1C" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rLF-4Y-9B3"/>
+                            <constraint firstItem="c03-RO-IPZ" firstAttribute="top" secondItem="uri-zv-G1C" secondAttribute="bottom" id="rWw-Kc-Qne"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c03-RO-IPZ" secondAttribute="trailing" id="ymS-a7-KVZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
